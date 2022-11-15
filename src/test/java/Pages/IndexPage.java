@@ -13,8 +13,15 @@ public class IndexPage extends BasePage{
     @FindBy(id = "btn1")
     public WebElement signInEl;
 
+    @FindBy(id = "btn2")
+    public WebElement skipSignIn;
+
     public void clickSignIn(){
         elementMethod.ClickElement(signInEl);
+    }
+
+    public void skipSignIn(){
+        elementMethod.ClickElement(skipSignIn);
     }
 
 }

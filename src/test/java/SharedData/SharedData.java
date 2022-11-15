@@ -10,10 +10,10 @@ import java.time.Duration;
 public class SharedData {
     public WebDriver driver;
 
-    @BeforeMethod
+    //@BeforeMethod
     public void prepaireDriver() {
         //Trebuie sa setam driverul de chrome
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = new ChromeDriver();
         //Accesam un anumit url:
         driver.get("https://demo.automationtesting.in/Index.html");
@@ -23,7 +23,7 @@ public class SharedData {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void closeDriver(){
         driver.quit();
         //Quit inchide toate taburile din browser

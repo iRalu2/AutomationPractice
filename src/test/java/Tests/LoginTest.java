@@ -4,24 +4,28 @@ import HelpMethods.ElementMethod;
 import HelpMethods.PageMethod;
 import Pages.IndexPage;
 import Pages.LoginPage;
+import SharedData.Hooks;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends SharedData {
+public class LoginTest extends Hooks {
 
     @Test
     public void metodaTest(){
 
-        //ElementMethod elementMethod = new ElementMethod(driver);
-        //PageMethod pageMethod = new PageMethod(driver);
         IndexPage indexPage = new IndexPage(driver);
         indexPage.clickSignIn();
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginInvalid("mail@gmail.com","password","Invalid User Name or PassWord");
+        loginPage.loginInvalid(propertiesFile.getValue("email"), propertiesFile.getValue("password"), propertiesFile.getValue("loginErrorMessage"));
+
+
+
+        //ElementMethod elementMethod = new ElementMethod(driver);
+        //PageMethod pageMethod = new PageMethod(driver);
 
         //Identificam un element
         //WebElement signInElement = driver.findElement(By.id("btn1"));

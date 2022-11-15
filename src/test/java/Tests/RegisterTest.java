@@ -1,6 +1,9 @@
 package Tests;
 
 import HelpMethods.ElementMethod;
+import Pages.IndexPage;
+import Pages.RegisterPage;
+import SharedData.Hooks;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,15 +11,44 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class RegisterTest extends SharedData {
+public class RegisterTest extends Hooks {
 
     @Test
     public void metodaTest() {
 
-        ElementMethod elementMethod = new ElementMethod(driver);
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.skipSignIn();
 
+        HashMap<String,String> testData = propertiesFile.getAll();
+
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.registerProcess(testData);
+
+        /*
+        registerPage.fillElement(registerPage.firstName, propertiesFile.getValue("firstNameValue"));
+        registerPage.fillElement(registerPage.lastName, propertiesFile.getValue("lastNameValue"));
+        registerPage.fillElement(registerPage.address, propertiesFile.getValue("addressValue"));
+        registerPage.fillElement(registerPage.emailAddress, propertiesFile.getValue("emailAddressValue"));
+        registerPage.fillElement(registerPage.phone, propertiesFile.getValue("phoneValue"));
+        registerPage.selectDropDownText(registerPage.skillsSelector, propertiesFile.getValue("skillsValue"));
+        registerPage.selectDropDownValue(registerPage.yearSelector, propertiesFile.getValue("yearValue"));
+        registerPage.selectDropDownValue(registerPage.monthSelector, propertiesFile.getValue("monthValue"));
+        registerPage.selectDropDownValue(registerPage.daySelector, propertiesFile.getValue("dayValue"));
+        registerPage.pickLanguage(propertiesFile.getValue("languageSkillValue"));
+        registerPage.clickElement(registerPage.genderElement);
+        registerPage.clickElement(registerPage.hobbiesElement);
+        registerPage.clickElement(registerPage.countryElement);
+        registerPage.selectCountryInput(registerPage.countryInput, propertiesFile.getValue("countryValue"));
+        registerPage.fillElement(registerPage.fileElement, propertiesFile.getValue("fileElementValue"));
+        registerPage.fillElement(registerPage.firstPassword, propertiesFile.getValue("passValue"));
+        registerPage.fillElement(registerPage.secondPassword, propertiesFile.getValue("passValue"));
+        */
+
+        /*
+        ElementMethod elementMethod = new ElementMethod(driver);
 
         WebElement skipSignIn = driver.findElement(By.id("btn2"));
         //skipSignIn.click();
@@ -94,13 +126,13 @@ public class RegisterTest extends SharedData {
 
         WebElement fileElement = driver.findElement(By.id("imagesrc"));
         //fileElement.sendKeys("src/test/resources/IMG-6626.jpg");
-        elementMethod.FillElement(fileElement,"/Users/riovescu/IdeaProjects/AutomationProject/src/test/resources/IMG-6626.jpg");
+        elementMethod.FillElement(fileElement,"C:/Users/riovescu/IdeaProjects/AutomationPractice/src/test/resources/IMG-6626.jpg");
 
         WebElement firstPassword = driver.findElement(By.id("firstpassword"));
         elementMethod.FillElement(firstPassword,"ABC123*");
 
         WebElement secondPassword = driver.findElement(By.id("secondpassword"));
         elementMethod.FillElement(secondPassword,"ABC123*");
-
+        */
     }
 }

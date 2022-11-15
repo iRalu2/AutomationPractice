@@ -1,9 +1,6 @@
 package Pages;
 
-import HelpMethods.ElementMethod;
-import HelpMethods.FrameMethod;
-import HelpMethods.PageMethod;
-import HelpMethods.WindowMethod;
+import HelpMethods.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,12 +12,15 @@ public class BasePage {
     public PageMethod pageMethod;
     public WindowMethod windowMethod;
 
+    public AlertMethod alertMethod;
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         elementMethod = new ElementMethod(driver);
         frameMethod = new FrameMethod(driver);
         pageMethod = new PageMethod(driver);
         windowMethod = new WindowMethod(driver);
+        alertMethod = new AlertMethod(driver);
         PageFactory.initElements(driver,this);
     }
 

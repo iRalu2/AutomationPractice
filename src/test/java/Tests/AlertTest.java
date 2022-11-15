@@ -1,6 +1,10 @@
 package Tests;
 
 import HelpMethods.AlertMethod;
+import Pages.AlertPage;
+import Pages.IndexPage;
+import Pages.RegisterPage;
+import SharedData.Hooks;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,11 +13,23 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class AlertTest extends SharedData {
+public class AlertTest extends Hooks {
 
     @Test
     public void MetodaTest(){
 
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.skipSignIn();
+
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.goToAlert();
+
+        AlertPage alertPage = new AlertPage(driver);
+        alertPage.acceptAlert();
+        alertPage.dismissAlert();
+        alertPage.fillAlert(propertiesFile.getValue("alertTestValue"));
+
+        /*
         AlertMethod alertMethod = new AlertMethod(driver);
         WebElement skipSignIn = driver.findElement(By.id("btn2"));
         skipSignIn.click();
@@ -46,6 +62,6 @@ public class AlertTest extends SharedData {
         alertBtn3.click();
 
         alertMethod.FillAlert("Message");
-
+        */
     }
 }

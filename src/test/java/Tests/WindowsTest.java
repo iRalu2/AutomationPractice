@@ -3,6 +3,9 @@ package Tests;
 import HelpMethods.ElementMethod;
 import HelpMethods.PageMethod;
 import HelpMethods.WindowMethod;
+import Pages.IndexPage;
+import Pages.RegisterPage;
+import Pages.WindowPage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,6 +20,18 @@ public class WindowsTest extends SharedData {
     @Test
     public void metodaTest() {
 
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.skipSignIn();
+
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.goToWindows();
+
+        WindowPage windowPage = new WindowPage(driver);
+        windowPage.singleTab();
+        windowPage.windowTab();
+        windowPage.multipleTab();
+
+        /*
         ElementMethod elementHelper = new ElementMethod(driver);
         PageMethod pageHelper = new PageMethod(driver);
         WindowMethod windowMethod = new WindowMethod(driver);
@@ -70,7 +85,7 @@ public class WindowsTest extends SharedData {
         windowMethod.SpecificWindow(1);
         windowMethod.closeWindow();
         windowMethod.SpecificWindow(0);
-
+        */
     }
 
 }

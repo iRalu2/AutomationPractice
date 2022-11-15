@@ -3,6 +3,10 @@ package Tests;
 import HelpMethods.ElementMethod;
 import HelpMethods.FrameMethod;
 import HelpMethods.PageMethod;
+import Pages.FramePage;
+import Pages.IndexPage;
+import Pages.RegisterPage;
+import SharedData.Hooks;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,11 +15,22 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class FrameTest extends SharedData {
+public class FrameTest extends Hooks {
 
     @Test
     public void MetodaTest(){
 
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.skipSignIn();
+
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.goToFrames();
+
+        FramePage framePage = new FramePage(driver);
+        framePage.singleFrame(propertiesFile.getValue("singleFrameTestValue"));
+        framePage.multipleFrame(propertiesFile.getValue("multipleFrameTestValue"));
+
+        /*
         ElementMethod elementMethod = new ElementMethod(driver);
         PageMethod pageMethod = new PageMethod(driver);
         FrameMethod frameMethod = new FrameMethod(driver);
@@ -55,6 +70,6 @@ public class FrameTest extends SharedData {
         //switch back to the first iFrame
         //driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[src='MultipleFrames.html']")));
         //frameMethod.SwitchFrame(driver.findElement(By.cssSelector("iframe[src='MultipleFrames.html']")));
-
+        */
     }
 }
