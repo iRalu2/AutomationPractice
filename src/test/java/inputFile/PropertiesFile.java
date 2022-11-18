@@ -18,7 +18,7 @@ public class PropertiesFile {
     public void loadFile(){
         properties =new Properties();
         try {
-            file = new FileInputStream("C:/Users/riovescu/IdeaProjects/AutomationPractice/src/test/resources/inputData.properties");
+            file = new FileInputStream("src/test/resources/inputData.properties");
             properties.load(file);
         } catch (IOException e) {
             throw new RuntimeException(e);

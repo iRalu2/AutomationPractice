@@ -6,6 +6,7 @@ import HelpMethods.WindowMethod;
 import Pages.IndexPage;
 import Pages.RegisterPage;
 import Pages.WindowPage;
+import SharedData.Hooks;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WindowsTest extends SharedData {
+public class WindowsTest extends Hooks {
 
     @Test
     public void metodaTest() {
