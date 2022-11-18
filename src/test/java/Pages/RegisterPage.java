@@ -131,7 +131,7 @@ public class RegisterPage extends BasePage{
         elementMethod.ClickElement(countryElement);
         elementMethod.FillElement(countryInput,testData.get("countryValue"));
         elementMethod.FillElementKeys(countryElement,Keys.ENTER);
-        elementMethod.FillElement(fileElement,testData.get("fileElementValue"));
+        //elementMethod.FillElement(fileElement,testData.get("fileElementValue"));
         elementMethod.FillElement(firstPassword,testData.get("passValue"));
         elementMethod.FillElement(secondPassword,testData.get("passValue"));
     }
