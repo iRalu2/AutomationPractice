@@ -89,9 +89,9 @@ public class RegisterPage extends BasePage{
     public WebElement windowsElement;
 
     //File file = new File("src/test/resources/IMG-6626.jpg");
-    //elementMethod.sendKeys(file.getAbsolutePath());
-    String path = "src/test/resources/IMG-6626.jpg";
-    File file = new File(new File(path).getAbsolutePath());
+    //fileElement.sendKeys(file.getAbsolutePath());
+    //String path = "src/test/resources/IMG-6626.jpg";
+    //File file = new File(new File(path).getAbsolutePath());
 
     public void goToAlert(){
         Actions actiuni = new Actions(driver);
@@ -138,7 +138,7 @@ public class RegisterPage extends BasePage{
         elementMethod.FillElement(countryInput,testData.get("countryValue"));
         elementMethod.FillElementKeys(countryElement,Keys.ENTER);
         //elementMethod.FillElement(fileElement,testData.get("fileElementValue"));
-        elementMethod.FillElementKeys(fileElement, Keys.valueOf(file.getAbsolutePath()));
+        //elementMethod.FillElementKeys(fileElement, Keys.valueOf(file.getAbsolutePath()));
         elementMethod.FillElement(firstPassword,testData.get("passValue"));
         elementMethod.FillElement(secondPassword,testData.get("passValue"));
     }
