@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
@@ -87,6 +88,11 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = "//a[text()='Windows']")
     public WebElement windowsElement;
 
+    //File file = new File("src/test/resources/IMG-6626.jpg");
+    //elementMethod.sendKeys(file.getAbsolutePath());
+    String path = "src/test/resources/IMG-6626.jpg";
+    File file = new File(new File(path).getAbsolutePath());
+
     public void goToAlert(){
         Actions actiuni = new Actions(driver);
         actiuni.moveToElement(switchToElement).perform();
@@ -132,6 +138,7 @@ public class RegisterPage extends BasePage{
         elementMethod.FillElement(countryInput,testData.get("countryValue"));
         elementMethod.FillElementKeys(countryElement,Keys.ENTER);
         //elementMethod.FillElement(fileElement,testData.get("fileElementValue"));
+        elementMethod.FillElementKeys(fileElement, Keys.valueOf(file.getAbsolutePath()));
         elementMethod.FillElement(firstPassword,testData.get("passValue"));
         elementMethod.FillElement(secondPassword,testData.get("passValue"));
     }
